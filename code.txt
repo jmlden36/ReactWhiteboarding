@@ -1,0 +1,58 @@
+remove dups from an array no filter()
+same with filter
+same with recursive function
+
+
+
+input: [7,9,"hi",12,"hi", 7, 53]
+output: [7,9,"hi",12,53]
+
+no filter
+create an empty array
+loop through all indexes of the input array
+all elements that are not will get pushed to the new array
+return our new array with no dups
+
+input array = [1,2,1,5]
+
+function rmDupe(arr) { //[1,2,1,5]
+  let b = [];
+  for (let i = 0; i < arr.length; i++) {
+    if ( b.index(arr[i]) === -1) { first time through 1 is  included so it does not push to b, second time same for 2
+      b.push(arr[i])
+    }
+  }
+  return b; [2,1,5]
+}
+
+using Set solution
+
+input array = [1,2,1,5]
+function rmDupeOneLine(arr) {
+  return [...new Set(arr)]
+}
+
+
+filter() solution
+
+function rmDupeFilt(arr) {
+  const nonDup = arr.filter((e, i) => {
+    return arr.indexOf(e) === i;
+  });
+  return nonDup;
+}
+
+
+
+Recursive solution
+
+function rmDupeRecursive(arr) {
+  if (arr.length<=1) {
+    return arr;
+  }
+  if (arr.slice(0, -1).includes(arr[arr.length -1])) {
+    return rmDupeRecursive(arr.slice(0, -1));
+  }
+  return rmDupeRecursive(arr.slice(0, -1)).concat(arr[arr.length -1]); 
+}
+
