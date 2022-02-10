@@ -18,7 +18,7 @@ input array = [1,2,1,5]
 function rmDupe(arr) { //[1,2,1,5]
   let b = [];
   for (let i = 0; i < arr.length; i++) {
-    if ( b.index(arr[i]) === -1) { first time through 1 is  included so it does not push to b, second time same for 2
+    if ( b.indexOf(arr[i]) === -1) { first time through 1 is  included so it does not push to b, second time same for 2
       b.push(arr[i])
     }
   }
